@@ -1,0 +1,7 @@
+/* styles.css */
+
+.background-pane{
+    -fx-background-image: url('../images/Authentication.png');
+    -fx-background-size: cover; /* Adjust this to fit your needs */
+    -fx-background-position: center;
+}

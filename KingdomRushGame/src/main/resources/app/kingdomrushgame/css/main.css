@@ -5,3 +5,9 @@
     -fx-background-size: cover; /* Adjust this to fit your needs */
     -fx-background-position: center;
 }
+
+.background-signup{
+    -fx-background-image: url('../images/signup&login.png');
+    -fx-background-size: cover; /* Adjust this to fit your needs */
+    -fx-background-position: center;
+}

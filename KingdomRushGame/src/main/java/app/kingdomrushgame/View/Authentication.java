@@ -22,8 +22,11 @@ public class Authentication implements Initializable {
     }
 
     @FXML
-    void login_act(ActionEvent event) {
-
+    void login_act(ActionEvent event) throws IOException {
+        Stage mainStage = HelloApplication.getMainStage();
+        mainStage.setTitle("Login");
+        FXMLLoader fxml = new FXMLLoader(HelloApplication.class.getResource("fxmls/login.fxml"));
+        mainStage.setScene(new Scene(fxml.load()));
     }
 
     @FXML

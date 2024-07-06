@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class sqlConnection {
-    String URL = "jdbc:mysql://localhost/Kingdom";
-    String User = "universityUser";
-    String password = "1234";
-    public Boolean ExecuteSql(String sqlCommand) throws Exception  {
 
+    public Boolean ExecuteSql(String sqlCommand) throws Exception  {
+        String URL = "jdbc:mysql://localhost/kingdomrush";
+        String User = "universityUser";
+        String password = "1234";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -24,6 +24,9 @@ public class sqlConnection {
     }
 
     public ResultSet ExecuteQuery(String sqlCommand) throws Exception  {
+        String URL = "jdbc:mysql://localhost/kingdom";
+        String User = "universityUser";
+        String password = "1234";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL,User,password);

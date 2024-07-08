@@ -4,6 +4,7 @@ import java.util.*;
 import app.kingdomrushgame.DataBase.sqlConnection;
 import app.kingdomrushgame.Model.Spell.Spell;
 import app.kingdomrushgame.Model.Spell.SpellCoin;
+import javafx.scene.control.Alert;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,7 +36,7 @@ public class Player {
             System.out.println(result);
             return result;
         } catch (Exception e) {
-            System.out.println("nope");
+            System.out.println(e.getMessage());
             return false;
         }
     }

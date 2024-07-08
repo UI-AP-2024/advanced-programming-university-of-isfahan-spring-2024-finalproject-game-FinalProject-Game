@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="535.0" prefWidth="923.0" styleClass="background-home" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.kingdomrushgame.View.Home">
+   <children>
+      <ImageView fx:id="shopping_img" fitHeight="83.0" fitWidth="124.0" layoutX="792.0" layoutY="438.0" onMouseClicked="#shopping_act" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/shopping.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="setting_img" fitHeight="83.0" fitWidth="101.0" layoutX="685.0" layoutY="438.0" onMouseClicked="#setting_act" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/setting_icon.png" />
+         </image>
+      </ImageView>
+      <HBox layoutX="713.0" layoutY="14.0" prefHeight="46.0" prefWidth="158.0" spacing="1.0" style="-fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="43.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                        <Image url="@../images/diamond.png" />
+                  </image>
+            </ImageView>
+            <Separator orientation="VERTICAL" prefHeight="46.0" prefWidth="10.0" />
+            <Label fx:id="diamond_lbl" alignment="CENTER" prefHeight="46.0" prefWidth="117.0" style="-fx-background-color: black;" text="Label" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Circle fx:id="circle1" fill="DODGERBLUE" layoutX="165.0" layoutY="245.0" onMouseClicked="#circle1_act" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="circle2" fill="DODGERBLUE" layoutX="255.0" layoutY="142.0" onMouseClicked="#circle2_act" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="circle3" fill="DODGERBLUE" layoutX="554.0" layoutY="176.0" onMouseClicked="#circle3_act" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="circle4" fill="DODGERBLUE" layoutX="486.0" layoutY="412.0" onMouseClicked="#circle4_act" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+   </children>
+</AnchorPane>

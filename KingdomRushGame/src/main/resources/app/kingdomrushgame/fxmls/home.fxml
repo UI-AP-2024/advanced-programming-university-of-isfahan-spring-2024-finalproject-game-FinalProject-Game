@@ -13,7 +13,7 @@
    <children>
       <ImageView fx:id="shopping_img" fitHeight="83.0" fitWidth="124.0" layoutX="792.0" layoutY="438.0" onMouseClicked="#shopping_act" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/shopping.png" />
+            <Image url="@../images/shopping_icon.png" />
          </image>
       </ImageView>
       <ImageView fx:id="setting_img" fitHeight="83.0" fitWidth="101.0" layoutX="685.0" layoutY="438.0" onMouseClicked="#setting_act" pickOnBounds="true" preserveRatio="true">

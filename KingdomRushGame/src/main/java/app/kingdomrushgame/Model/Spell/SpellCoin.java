@@ -3,14 +3,17 @@ import java.lang.*;
 import java.util.*;
 
 public class SpellCoin implements Spell{
-    private int price;
+    private final int price= 800;
+    private int id=3;
 
-    public SpellCoin(int price){
-        this.price = price;
+    @Override
+    public int getId() {
+        return id;
     }
+
     @Override
     public int getPrice() {
-        return 0;
+        return price;
     }
     @Override
     public void drop() {

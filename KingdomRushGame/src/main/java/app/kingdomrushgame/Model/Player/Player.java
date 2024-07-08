@@ -1,4 +1,5 @@
 package app.kingdomrushgame.Model.Player;
+import java.sql.ResultSet;
 import java.util.*;
 
 import app.kingdomrushgame.DataBase.sqlConnection;
@@ -22,25 +23,44 @@ public class Player {
         this.name = name;
         this.password = password;
         this.level = 1;
-        this.diamondNumber = 300; // todo at first
+        this.diamondNumber = 5000; // todo at first
         this.backpack = new ArrayList<>();
     }
 
     public boolean signup(){
-        String sql = String.format("INSERT INTO player (playerName,playerPassword,playerLevel,playerDiamondNumber) VALUES ('%s','%s',%s,%s) ",this.name,this.password,this.level,this.diamondNumber);
-//        String sql = "INSERT INTO `player` (`player_id`, `player_name`, `player_password`, `player_level`, `player_diamond_number`) VALUES (NULL, 'ahmad', '1234', '1', '300')";
+        String insertSql = String.format("INSERT INTO player (playerName,playerPassword,playerLevel,playerDiamondNumber) VALUES ('%s','%s',%s,%s) ",this.name,this.password,this.level,this.diamondNumber);
+        String foundIdSql = String.format("SELECT playerId FROM player WHERE playerName = '%s' ",this.name);
         sqlConnection sqlConnect = new sqlConnection();
 
         try {
-            Boolean result = sqlConnect.ExecuteSql(sql);
+            Boolean result = sqlConnect.ExecuteSql(insertSql);
             System.out.println(result);
+            if (result){
+                ResultSet resultSet = sqlConnect.ExecuteQuery(foundIdSql);
+                if (resultSet.next()){
+                    this.id = Integer.parseInt(resultSet.getString(1));
+                    System.out.println(this.id);
+                }
+            }
             return result;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return false;
         }
     }
-    public void ShoppingSpell(){
-
+    public Boolean buySpell(int player_id, Spell spell){
+        String insertSql = String.format("INSERT INTO player_spells (player_id,spell_id,spellCounter) VALUES (%s,%s,%s)" +
+                "ON DUPLICATE KEY UPDATE spellCounter=spellCounter+1",player_id,spell.getId(),1);
+        String decreaseSql = String.format("UPDATE player SET playerDiamondNumber = playerDiamondNumber- %s WHERE playerId=%s",spell.getPrice(),player_id);
+        sqlConnection sqlConnect = new sqlConnection();
+        try {
+            Boolean result = sqlConnect.ExecuteSql(insertSql);
+            if (result) result = sqlConnect.ExecuteSql(decreaseSql);
+            System.out.println(result);
+            return result;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 }

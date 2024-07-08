@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="425.0" prefWidth="825.0" styleClass="background-shopping" stylesheets="@../css/main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.kingdomrushgame.View.Shopping">
+   <children>
+      <ImageView fx:id="health_imgv" fitHeight="104.0" fitWidth="78.0" layoutX="230.0" layoutY="294.0" onMouseClicked="#health_act" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="littleBoy_imgv" fitHeight="143.0" fitWidth="110.0" layoutX="439.0" layoutY="256.0" onMouseClicked="#littleBoy_act" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="coin_imgv" fitHeight="51.0" fitWidth="78.0" layoutX="562.0" layoutY="321.0" onMouseClicked="#coin_act" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="freeze_imgv" fitHeight="51.0" fitWidth="126.0" layoutX="622.0" layoutY="248.0" onMouseClicked="#freeze_act" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="healthCounter_lbl" alignment="BOTTOM_RIGHT" layoutX="166.0" layoutY="283.0" prefHeight="51.0" prefWidth="46.0" style="-fx-border-color: black;" text="0" textFill="#153ae1" />
+      <Label fx:id="coinCounter_lbl" alignment="BOTTOM_RIGHT" layoutX="158.0" layoutY="338.0" prefHeight="51.0" prefWidth="55.0" style="-fx-border-color: black;" text="0" textFill="#153ae1" />
+      <Label fx:id="freezeCounter_lbl" alignment="BOTTOM_RIGHT" layoutX="167.0" layoutY="150.0" prefHeight="51.0" prefWidth="46.0" style="-fx-border-color: black;" text="0" textFill="#153ae1" />
+      <Label fx:id="littleBoyCounter_lbl" alignment="BOTTOM_RIGHT" layoutX="167.0" layoutY="91.0" prefHeight="51.0" prefWidth="46.0" style="-fx-border-color: black;" text="0" textFill="#153ae1" />
+      <ImageView fx:id="buy_imgv" fitHeight="51.0" fitWidth="126.0" layoutX="538.0" layoutY="187.0" onMouseClicked="#buy_act" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="dimandCounter_lbl" layoutX="308.0" layoutY="19.0" prefHeight="25.0" prefWidth="46.0" text="0" />
+      <ImageView fx:id="tick_imgv" fitHeight="51.0" fitWidth="88.0" layoutX="671.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

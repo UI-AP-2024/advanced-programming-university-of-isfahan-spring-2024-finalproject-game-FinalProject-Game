@@ -9,8 +9,8 @@ public class sqlConnection {
 
     public Boolean ExecuteSql(String sqlCommand) throws Exception  {
         String URL = "jdbc:mysql://localhost/kingdomrush";
-        String User = "universityUser";
-        String password = "1234";
+        String User = "root";
+        String password = "@A721485470sm";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -24,7 +24,7 @@ public class sqlConnection {
     }
 
     public ResultSet ExecuteQuery(String sqlCommand) throws Exception  {
-        String URL = "jdbc:mysql://localhost/kingdom";
+        String URL = "jdbc:mysql://localhost/kingdomrush";
         String User = "universityUser";
         String password = "1234";
         try {

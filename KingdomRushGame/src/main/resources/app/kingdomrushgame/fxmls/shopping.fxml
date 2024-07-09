@@ -16,6 +16,6 @@
       <Label fx:id="littleBoyCounter_lbl" alignment="BOTTOM_RIGHT" layoutX="167.0" layoutY="91.0" prefHeight="51.0" prefWidth="46.0" style="-fx-border-color: black;" text="0" textFill="#153ae1" />
       <ImageView fx:id="buy_imgv" fitHeight="51.0" fitWidth="126.0" layoutX="538.0" layoutY="187.0" onMouseClicked="#buy_act" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="dimandCounter_lbl" layoutX="308.0" layoutY="19.0" prefHeight="25.0" prefWidth="46.0" text="0" />
-      <ImageView fx:id="tick_imgv" fitHeight="51.0" fitWidth="88.0" layoutX="671.0" layoutY="364.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="tick_imgv" fitHeight="51.0" fitWidth="88.0" layoutX="671.0" layoutY="364.0" onMouseClicked="#tick_act" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

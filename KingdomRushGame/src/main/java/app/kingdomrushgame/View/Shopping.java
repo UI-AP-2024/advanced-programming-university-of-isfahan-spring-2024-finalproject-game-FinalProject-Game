@@ -1,16 +1,20 @@
 package app.kingdomrushgame.View;
 
 import app.kingdomrushgame.Controller.playerController;
+import app.kingdomrushgame.HelloApplication;
 import app.kingdomrushgame.Model.Player.Player;
 import app.kingdomrushgame.Model.Spell.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -93,6 +97,13 @@ public class Shopping implements Initializable {
     @FXML
     void littleBoy_act(MouseEvent event) {
         chosenSpell = new SpellLittleBoy();
+    }
+
+    @FXML
+    void tick_act(MouseEvent event) throws IOException {
+        FXMLLoader fxml = new FXMLLoader(HelloApplication.class.getResource("fxmls/home.fxml"));
+        Scene scene = new Scene(fxml.load());
+        HelloApplication.getMainStage().setScene(scene);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

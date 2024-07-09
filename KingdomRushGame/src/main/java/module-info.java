@@ -3,6 +3,7 @@ module app.kingdomrushgame {
     requires javafx.fxml;
     requires static lombok;
     requires java.sql;
+    requires javafx.media;
 
 
     opens app.kingdomrushgame to javafx.fxml;

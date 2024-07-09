@@ -1,5 +1,6 @@
 package app.kingdomrushgame.View;
 
+import app.kingdomrushgame.Controller.musicController;
 import app.kingdomrushgame.Controller.playerController;
 import app.kingdomrushgame.HelloApplication;
 import javafx.fxml.FXML;
@@ -10,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
@@ -34,6 +37,9 @@ public class Home implements Initializable {
     @FXML
     private ImageView setting_img;
 
+    @FXML
+    private VBox setting_vbox;
+
 
     @FXML
     void shopping_act(MouseEvent event) throws IOException {
@@ -43,7 +49,13 @@ public class Home implements Initializable {
 
     @FXML
     void setting_act(MouseEvent event) {
+        setting_vbox.setVisible(!setting_vbox.isVisible());
+    }
 
+    @FXML
+    void volume_act(MouseEvent event) {
+        MediaPlayer mediaPlayer = musicController.getMusicController().getMediaPlayer();
+        mediaPlayer.setMute(!mediaPlayer.isMute());
     }
     @FXML
     void circle1_act(MouseEvent event) {

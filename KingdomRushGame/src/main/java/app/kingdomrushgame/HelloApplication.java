@@ -2,15 +2,32 @@ package app.kingdomrushgame;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lombok.Getter;
+import app.kingdomrushgame.Controller.musicController;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class HelloApplication extends Application {
+public class HelloApplication extends Application implements Initializable {
     @Getter
     private static Stage mainStage;
+
+    @Override
+    public void init() throws Exception {
+        musicController.getMusicController().getMediaPlayer().play();
+        musicController.getMusicController().getMediaPlayer().setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                musicController.getMusicController().getMediaPlayer().seek(musicController.getMusicController().getMediaPlayer().getStartTime());
+                musicController.getMusicController().getMediaPlayer().play();
+            }
+        });
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         mainStage = stage;
@@ -22,5 +39,11 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }

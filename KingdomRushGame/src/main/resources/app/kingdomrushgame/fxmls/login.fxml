@@ -12,11 +12,11 @@
     <children>
         <HBox layoutX="270.0" layoutY="190.0" prefHeight="78.0" prefWidth="411.0" spacing="3.0" style="-fx-background-radius: 15;">
             <children>
-                <TextField alignment="CENTER" prefHeight="78.0" prefWidth="208.0" promptText="user name" style="-fx-background-color: #1a1515; -fx-background-radius: 15;">
+                <TextField fx:id="name_field" alignment="CENTER" prefHeight="78.0" prefWidth="208.0" promptText="user name" style="-fx-background-color: #1a1515; -fx-background-radius: 15;">
                     <font>
                         <Font size="24.0" />
                     </font></TextField>
-                <PasswordField alignment="CENTER" prefHeight="78.0" prefWidth="200.0" promptText="password" style="-fx-background-color: #1a1515; -fx-background-radius: 15;">
+                <PasswordField fx:id="pass_field" alignment="CENTER" prefHeight="78.0" prefWidth="200.0" promptText="password" style="-fx-background-color: #1a1515; -fx-background-radius: 15;">
                     <font>
                         <Font size="20.0" />
                     </font>

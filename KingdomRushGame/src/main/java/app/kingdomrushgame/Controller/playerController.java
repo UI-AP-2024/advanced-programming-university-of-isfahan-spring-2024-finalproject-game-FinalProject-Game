@@ -16,7 +16,8 @@ public class playerController {
     }
 
     public static boolean Login(String userName,String password){
-        return true; //todo
+        currentPlayer = new Player(userName,password);
+        return currentPlayer.login();
     }
 
     public static boolean buySpell(Spell spell){

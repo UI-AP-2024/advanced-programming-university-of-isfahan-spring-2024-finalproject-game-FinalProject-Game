@@ -3,8 +3,7 @@ import java.sql.ResultSet;
 import java.util.*;
 
 import app.kingdomrushgame.DataBase.sqlConnection;
-import app.kingdomrushgame.Model.Spell.Spell;
-import app.kingdomrushgame.Model.Spell.SpellCoin;
+import app.kingdomrushgame.Model.Spell.*;
 import javafx.scene.control.Alert;
 import lombok.Getter;
 import lombok.Setter;
@@ -48,7 +47,53 @@ public class Player {
             return false;
         }
     }
-    public Boolean buySpell(int player_id, Spell spell){
+
+    public boolean login(){
+        String playerSql = String.format("SELECT playerId,playerLevel,playerDiamondNumber" +
+                " From player WHERE playerName= '%s' AND playerPassword='%s'",this.name,this.password);
+        String backpackSql = String.format("SELECT spell_id,spellCounter FROM player_spells" +
+                " WHERE player_id=%s",this.id);
+        sqlConnection sqlConnect = new sqlConnection();
+        try{
+            ResultSet resultSet = sqlConnect.ExecuteQuery(playerSql);
+            if (resultSet.next()){
+                this.id = resultSet.getInt(1);
+                this.level = Integer.parseInt(resultSet.getString(2));
+                this.diamondNumber = Integer.parseInt(resultSet.getString(3));
+                ResultSet resultBackPack = sqlConnect.ExecuteQuery(backpackSql);
+                while(resultBackPack.next()){
+                    int spellId = resultBackPack.getInt(1);
+                    int spellCounter = resultBackPack.getInt(2);
+                    if (spellId ==1){
+                        for (int i = 0; i < spellCounter; i++) {
+                            this.backpack.add(new SpellHealth());
+                        }
+                    }
+                    else if (spellId ==3){
+                        for (int i = 0; i < spellCounter; i++) {
+                            this.backpack.add(new SpellCoin());
+                        }
+                    }
+                    else if (spellId ==4){
+                        for (int i = 0; i < spellCounter; i++) {
+                            this.backpack.add(new SpellFreeze());
+                        }
+                    }
+                    else if (spellId ==5){
+                        for (int i = 0; i < spellCounter; i++) {
+                            this.backpack.add(new SpellLittleBoy());
+                        }
+                    }
+                }
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+    public boolean buySpell(int player_id, Spell spell){
         String insertSql = String.format("INSERT INTO player_spells (player_id,spell_id,spellCounter) VALUES (%s,%s,%s)" +
                 "ON DUPLICATE KEY UPDATE spellCounter=spellCounter+1",player_id,spell.getId(),1);
         String decreaseSql = String.format("UPDATE player SET playerDiamondNumber = playerDiamondNumber- %s WHERE playerId=%s",spell.getPrice(),player_id);

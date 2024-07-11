@@ -23,7 +23,10 @@ public class playerController {
     public static boolean buySpell(Spell spell){
         if (currentPlayer.getDiamondNumber()>=spell.getPrice()){
             boolean result = currentPlayer.buySpell(currentPlayer.getId(), spell);
-            if (result) currentPlayer.setDiamondNumber(currentPlayer.getDiamondNumber()- spell.getPrice());
+            if (result) {
+                currentPlayer.setDiamondNumber(currentPlayer.getDiamondNumber()- spell.getPrice());
+                currentPlayer.getBackpack().add(spell);
+            }
             return result;
         }
         else return false;

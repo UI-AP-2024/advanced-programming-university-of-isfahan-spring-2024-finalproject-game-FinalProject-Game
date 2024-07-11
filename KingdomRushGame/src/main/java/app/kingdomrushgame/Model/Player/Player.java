@@ -51,8 +51,6 @@ public class Player {
     public boolean login(){
         String playerSql = String.format("SELECT playerId,playerLevel,playerDiamondNumber" +
                 " From player WHERE playerName= '%s' AND playerPassword='%s'",this.name,this.password);
-        String backpackSql = String.format("SELECT spell_id,spellCounter FROM player_spells" +
-                " WHERE player_id=%s",this.id);
         sqlConnection sqlConnect = new sqlConnection();
         try{
             ResultSet resultSet = sqlConnect.ExecuteQuery(playerSql);
@@ -60,6 +58,9 @@ public class Player {
                 this.id = resultSet.getInt(1);
                 this.level = Integer.parseInt(resultSet.getString(2));
                 this.diamondNumber = Integer.parseInt(resultSet.getString(3));
+
+                String backpackSql = String.format("SELECT spell_id,spellCounter FROM player_spells" +
+                        " WHERE player_id=%s",this.id);
                 ResultSet resultBackPack = sqlConnect.ExecuteQuery(backpackSql);
                 while(resultBackPack.next()){
                     int spellId = resultBackPack.getInt(1);

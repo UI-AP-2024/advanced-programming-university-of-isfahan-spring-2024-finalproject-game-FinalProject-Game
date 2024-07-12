@@ -1,0 +1,17 @@
+.slider .track{
+    -fx-background-color: rgba(211,211,211,0.5);
+    -fx-background-radius: 5px;
+}
+.slider .track .fill {
+    -fx-background-color: orange;
+    -fx-background-radius: 5px;
+}
+.slider .thumb {
+    -fx-background-image: url('pics/Clipped_image_20240712_104844.png');
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-pref-width: 30px;
+    -fx-pref-height: 30px;
+    -fx-background-radius: 50px;
+    -fx-background-color:transparent;
+}

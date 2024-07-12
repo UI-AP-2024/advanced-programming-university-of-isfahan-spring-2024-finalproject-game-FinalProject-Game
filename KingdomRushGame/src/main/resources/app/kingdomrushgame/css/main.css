@@ -23,3 +23,9 @@
     -fx-background-size: cover; /* Adjust this to fit your needs */
     -fx-background-position: center;
 }
+
+.background-map1{
+    -fx-background-image: url('../images/map_pages/map1.jpg');
+    -fx-background-size: cover; /* Adjust this to fit your needs */
+    -fx-background-position: center;
+}

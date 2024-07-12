@@ -7,21 +7,10 @@ import java.lang.*;
 @Getter
 @Setter
 public class ArcherTower extends Tower{
-    private String path;
     public ArcherTower(){
-        super(5,6,7, "null");
-        this.path=null;
-    }
-    @Override
-    public void defending() {
+
+        super(5,6,7,70);
 
     }
-    @Override
-    public void upgrade() {
 
-    }
-    @Override
-    public void spoilage() {
-
-    }
 }

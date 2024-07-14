@@ -1,0 +1,31 @@
+/* styles.css */
+
+.background-pane{
+    -fx-background-image: url('../images/Authentication.png');
+    -fx-background-size: cover; /* Adjust this to fit your needs */
+    -fx-background-position: center;
+}
+
+.background-signup{
+    -fx-background-image: url('../images/signup&login.png');
+    -fx-background-size: cover; /* Adjust this to fit your needs */
+    -fx-background-position: center;
+}
+
+.background-home{
+    -fx-background-image: url('../images/home.png');
+    -fx-background-size: cover; /* Adjust this to fit your needs */
+    -fx-background-position: center;
+}
+
+.background-shopping{
+    -fx-background-image: url('../images/shopping.png');
+    -fx-background-size: cover; /* Adjust this to fit your needs */
+    -fx-background-position: center;
+}
+
+.background-map1{
+    -fx-background-image: url('../images/map_pages/map1.jpg');
+    -fx-background-size: cover; /* Adjust this to fit your needs */
+    -fx-background-position: center;
+}

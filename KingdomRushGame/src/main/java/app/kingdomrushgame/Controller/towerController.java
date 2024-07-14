@@ -5,6 +5,10 @@ import app.kingdomrushgame.Model.Tower.ArcherTower;
 import app.kingdomrushgame.Model.Tower.ArtilleryTower;
 import app.kingdomrushgame.Model.Tower.Tower;
 import app.kingdomrushgame.Model.Tower.WizardTower;
+import javafx.scene.layout.AnchorPane;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class towerController {
     private static Tower tower;
@@ -30,5 +34,21 @@ public class towerController {
             return coin;
         }
         return -1;
+    }
+
+    public static void sendStone(){
+
+    }
+
+    public static void towerWakeUp(AnchorPane anchorPane){
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+
+            }
+
+
+    },1000,1);
     }
 }

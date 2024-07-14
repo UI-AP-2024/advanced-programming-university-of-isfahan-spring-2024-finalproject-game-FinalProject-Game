@@ -13,9 +13,8 @@ public class HelloApplication extends Application {
     private static Stage mainStage;
     @Override
     public void start(Stage stage) throws IOException {
-        mapController.startMap();
         mainStage = stage;
-        FXMLLoader fxml= new FXMLLoader(HelloApplication.class.getResource("fxmls/game.fxml"));
+        FXMLLoader fxml= new FXMLLoader(HelloApplication.class.getResource("fxmls/Authentication.fxml"));
         stage.setScene(new Scene(fxml.load()));
         stage.setTitle("Kingdom Rush Tower");
         stage.show();

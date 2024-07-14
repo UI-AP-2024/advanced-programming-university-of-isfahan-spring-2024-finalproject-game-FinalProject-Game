@@ -5,8 +5,11 @@ import app.kingdomrushgame.Controller.towerController;
 import app.kingdomrushgame.HelloApplication;
 import app.kingdomrushgame.Model.Map.gameMap;
 import app.kingdomrushgame.Model.Raider.Point;
+import app.kingdomrushgame.Model.Raider.Raider;
+import javafx.animation.PathTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -16,6 +19,10 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.LineTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
+import javafx.util.Duration;
 
 
 import java.net.URL;
@@ -27,6 +34,7 @@ import java.util.ResourceBundle;
 public class Game implements Initializable {
     public AnchorPane anchorGame;
     private List<ImageView> towers = new ArrayList<>();
+    private List<ImageView> mapRaiders = new ArrayList<>();
     private ImageView popup = new ImageView();
     private ImageView chosenTower = new ImageView();
 
@@ -41,15 +49,17 @@ public class Game implements Initializable {
     private Label waveCounter_lbl;
     private int waveCounter = 0;
 
+    private gameMap map;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        gameMap map = mapController.getMap();
-
+        map = mapController.getMap();
         coinCounter_lbl.setText(String.valueOf(map.getCoins()));
         coin = map.getCoins();
         waveCounter_lbl.setText(waveCounter + " / " + String.valueOf(map.getAttackWaves().size()));
 
+
+        /// towers
         for (Point point : map.getTowersPath()) {
             Image imageArcher = new Image(String.valueOf(HelloApplication.class.getResource("images/towers/Archer.png")));
             Image imageArcher2 = new Image(String.valueOf(HelloApplication.class.getResource("images/towers/Archer2.png")));
@@ -151,6 +161,21 @@ public class Game implements Initializable {
             });
             towers.add(imageView);
             anchorGame.getChildren().add(imageView);
+        }
+    }
+
+
+    @FXML
+    void startAttack(MouseEvent event) throws InterruptedException {
+        for (Raider raider:map.getAttackWaves().get(waveCounter++)){
+            ImageView imageView = raider.getWalkGif();
+            mapRaiders.add(imageView);
+            imageView.setFitWidth(30);
+            imageView.setFitHeight(30);
+            raider.getPathTransition().setNode(imageView);
+            anchorGame.getChildren().add(raider.getPathTransition().getNode());
+            raider.getPathTransition().play();
+            Thread.sleep(500);
         }
     }
 
